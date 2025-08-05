@@ -1,0 +1,19 @@
+{
+  "name": "express",
+  "module": "main.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "scripts": {
+    "run": "bun run main.ts",
+    "build": "bun build main.ts --outdir dist --target node18",
+    "test": "bun test"
+  },
+  "dependencies": {
+    "mongoose": "^8.17.0"
+  }
+}
