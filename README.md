@@ -18,7 +18,7 @@ Una API REST simple y eficiente construida con [Bun](https://bun.sh) y MongoDB, 
 
 ## 🛠️ Estructura del Proyecto
 
-```
+``` text
 src/
 ├── config/
 │   └── mongoose.ts    # Configuración de conexión MongoDB
