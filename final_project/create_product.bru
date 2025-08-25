@@ -1,0 +1,36 @@
+meta {
+  name: create_product
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:3000/api/products
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "name": "xiaomi",
+    "description": "it's a beautifull cellphone, for gaming and comunicate with family",
+    "price": 43,
+    "stock": 19,
+    "brand": "samsung",
+    "discount": 10,
+    "active": 1,
+    "weight": 100,
+    "dimension": {
+      "width": 10,
+      "height": 15,
+      "depth": 2
+    },
+    "qualification": [
+      4,3,4,3,2,4
+    ]
+  }
+}
+
+settings {
+  encodeUrl: true
+}

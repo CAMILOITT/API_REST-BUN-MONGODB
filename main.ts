@@ -1,31 +1,29 @@
 import { serve } from "bun"
 import { connectWithDB } from "./src/config/mongoose"
-import { ProductsModel } from "./src/model/products.model"
+import {
+  createProduct,
+  deleteProduct,
+  getAllProducts,
+  getProduct,
+  updateProduct,
+} from "./src/controller/product.controller"
 
 await connectWithDB()
 
 serve({
   port: 3000,
   routes: {
+    "/api/products/:id": {
+      PUT: updateProduct,
+      DELETE: deleteProduct,
+      GET: getProduct,
+    },
     "/api/products": {
-      GET: async () => {
-        const products = await ProductsModel.find()
-        return new Response(JSON.stringify(products), {
-          headers: { "Content-Type": "application/json" },
-        })
-      },
-      POST: async request => {
-        const data = await request.json()
-        const newProduct = new ProductsModel(data)
-        await newProduct.save()
-        return new Response(JSON.stringify(newProduct), {
-          headers: { "Content-Type": "application/json" },
-          status: 201,
-        })
-      },
+      POST: createProduct,
+      GET: getAllProducts,
     },
   },
-  fetch(request) {
+  fetch() {
     return new Response("fallback response")
   },
 })

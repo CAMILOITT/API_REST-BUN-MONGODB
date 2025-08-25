@@ -9,7 +9,7 @@
     "typescript": "^5"
   },
   "scripts": {
-    "dev": "bun run main.ts",
+    "dev": "bun --hot run main.ts",
     "build": "bun build main.ts --outdir dist --target node18",
     "test": "bun test"
   },
