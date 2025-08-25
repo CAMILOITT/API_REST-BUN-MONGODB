@@ -9,11 +9,12 @@
     "typescript": "^5"
   },
   "scripts": {
-    "run": "bun run main.ts",
+    "dev": "bun run main.ts",
     "build": "bun build main.ts --outdir dist --target node18",
     "test": "bun test"
   },
   "dependencies": {
-    "mongoose": "^8.17.0"
+    "mongoose": "^8.17.0",
+    "zod": "^4.1.1"
   }
 }

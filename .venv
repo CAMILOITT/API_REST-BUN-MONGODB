@@ -1,0 +1,4 @@
+# config db
+HOST="localhost"
+URI="27017"
+NAME_DATABASE="simple_shop"

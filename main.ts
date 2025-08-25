@@ -1,27 +1,10 @@
-import mongoose from "mongoose"
+import { serve } from "bun"
+import { connectWithDB } from "./src/config/mongoose"
 import { ProductsModel } from "./src/model/products.model"
 
-// Connect to MongoDB
-await mongoose.connect("mongodb://localhost:27017/mydatabase")
+await connectWithDB()
 
-// create product
-const product = new ProductsModel({
-  name: "Sample Product",
-  price: 100,
-  description: "This is a sample product.",
-})
-
-// Save the product to the database
-await product.save()
-
-// read product of the db
-const foundProduct = await ProductsModel.findOne({ name: "Sample Product" })
-
-Bun.serve({
-  fetch: request => {
-    console.log("Received request:", request.method, request.url)
-    return new Response("Hello, world!")
-  },
+serve({
   port: 3000,
   routes: {
     "/api/products": {
@@ -41,5 +24,8 @@ Bun.serve({
         })
       },
     },
+  },
+  fetch(request) {
+    return new Response("fallback response")
   },
 })

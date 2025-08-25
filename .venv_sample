@@ -1,0 +1,4 @@
+# config db
+HOST="host of the db"
+URI="uri of the db"
+NAME_DATABASE="name of the db"
