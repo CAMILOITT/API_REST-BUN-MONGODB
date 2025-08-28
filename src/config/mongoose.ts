@@ -2,7 +2,11 @@ import mongoose from "mongoose"
 
 export async function connectWithDB() {
   try {
-    const { USER_DB, HOST, NAME_DATABASE } = process.env
-    await mongoose.connect(`mongodb://${USER_DB}:${HOST}/${NAME_DATABASE}`)
-  } catch (error) {}
+    const { DB_HOST, DB_NAME, DB_USER } = process.env
+
+    const URI = `mongodb://${DB_USER}:${DB_HOST}/${DB_NAME}`
+    await mongoose.connect(URI)
+  } catch (error) {
+    console.log(error)
+  }
 }

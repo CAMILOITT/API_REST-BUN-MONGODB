@@ -1,6 +1,6 @@
 import type { BunRequest } from "bun"
-import { ErrorResponse } from "../../utils/Error"
 import { ProductsModel, type Product } from "../model/products.model"
+import { ErrorResponse } from "../utils/Error"
 
 export async function createProduct(req: BunRequest) {
   try {

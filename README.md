@@ -19,13 +19,32 @@ Una API REST simple y eficiente construida con [Bun](https://bun.sh) y MongoDB, 
 ## 🛠️ Estructura del Proyecto
 
 ``` text
-src/
-├── config/
-│   └── mongoose.ts    # Configuración de conexión MongoDB
-├── controller/
-│   └── product.controller.ts    # Manejadores de rutas de productos
-└── model/
-    └── products.model.ts    # Esquema de base de datos para productos
+APIREST_COMPUSTORE
+├── final_project/
+│   ├── bruno.json                      # Configuración de Bruno
+│   ├── create_product.bru              # Colección de pruebas de Bruno para cada endpoint CRUD
+│   ├── get_all_products.bru            
+│   ├── get_product.bru                     
+│   ├── update_product.bru          
+│   └── delete_product.bru              
+├── src/
+│   ├── config/                         # Configuración de la aplicación
+│   │   ├── mongoose.ts                 # Conexión a la base de datos MongoDB
+│   │   └── server.ts                   # Configuración del servidor
+│   ├── controller/                     # Lógica de negocio
+│   │   └── product.controller.ts       # Controladores para productos (CRUD)
+│   ├── model/                          # Modelos de datos
+│   │   └── products.model.ts           # Esquema e interfaz del producto con Mongoose
+│   ├── routes/                         # Definición de rutas
+│   │   ── products.routes.ts           # Endpoints de la API para productos
+│   ├── types/                          # Definiciones de TypeScript
+│   │   └── global.types.ts             # Interfaces y tipos globales
+│   ├── utils/                          # Utilidades
+│   │   └── Error.ts                    # Clases personalizadas para manejo de errores
+│   └── main.ts                         # Punto de entrada de la aplicación
+├── .gitignore                          # ignorar archivos innecesarios
+├── .env                                # archivo .env, donde se guarda toda la información sensible
+└── .env_sample                         # Ejemplo de archivo .env
 ```
 
 ## 🔧 Instalación
